@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // Database Connection with mongoDB
 mongoose.connect(
-  config.mongoURI
+  "mongodb+srv://vitordsmota:irwiB^%40uPFosjc3HN4M@cluster0.eyrhhqa.mongodb.net/Ecommerce"
 );
 
 // API Creation
