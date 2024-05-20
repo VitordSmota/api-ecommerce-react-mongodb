@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 })
 
 // Image Storage Engine
-
+/*
 const storage = multer.diskStorage({
     destination: './upload/images',
     filename: (req, file, cb) => {
@@ -299,3 +299,4 @@ app.post("/cart/shoppingcart", fetchUser, async (req, res) => {
       console.log("Server Running on Port " + port);
     }
   });
+  */
