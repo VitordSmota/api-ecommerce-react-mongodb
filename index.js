@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken")
 const multer = require("multer")
 const path = require("path")
 const cors = require("cors");
-const config = require("./config");
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser')
 
@@ -45,7 +44,7 @@ app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
       success: 1,
-      image_url: `https://api-ecommerce-react-mongodb-gnli-cgbtopybc-dev-vtormts-projects.vercel.app/images/${req.file.filename}`,
+      image_url: `https://api-ecommerce-react-mongodb-gnli-cgbtopybc-dev-vtormts-projects.vercel.app/}/images/${req.file.filename}`,
     });
 })
 
