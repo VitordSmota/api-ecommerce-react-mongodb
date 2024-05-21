@@ -294,12 +294,6 @@ app.post("/cart/shoppingcart", fetchUser, async (req, res) => {
 
 })
 
-app.post("/user/id", async (req, res) => {
-  //let users = await Users.find({})
-  //res.send(JSON.stringify(users))
-  let user = req.user
-  res.send(JSON.stringify(user));
-})
 
   app.listen(port, error => {
     if (error) {
