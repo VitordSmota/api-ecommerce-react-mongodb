@@ -1,4 +1,4 @@
-const port = process.env.PORT || 4000;
+const port = process.env.PORT ||4000;
 const express = require("express")
 const app = express();
 const mongoose = require("mongoose")
@@ -17,9 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Database Connection with mongoDB
-mongoose.connect(
-  process.env.MONGO_URI
-);
+mongoose.connect(process.env.MONGO_URI);
 
 // API Creation
 app.get("/", (req, res) => {
@@ -44,7 +42,7 @@ app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
       success: 1,
-      image_url: `https://api-ecommerce-react-mongodb-gnli-cgbtopybc-dev-vtormts-projects.vercel.app/}/images/${req.file.filename}`,
+      image_url: `https://api-ecommerce-react-mongodb.onrender.com/images/${req.file.filename}`,
     });
 })
 
@@ -299,4 +297,3 @@ app.post("/cart/shoppingcart", fetchUser, async (req, res) => {
       console.log("Server Running on Port " + port);
     }
   });
-  
