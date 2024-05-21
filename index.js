@@ -1,4 +1,4 @@
-const port = process.env.PORT ||4000;
+const port = process.env.PORT||4000;
 const express = require("express")
 const app = express();
 const mongoose = require("mongoose")
@@ -190,6 +190,8 @@ app.post('/signup', async (req, res) => {
 
 })
 
+
+let IsAdmin; 
 // Creating endpoint for user login
 app.post('/login', async (req, res) => {
   
@@ -206,11 +208,11 @@ app.post('/login', async (req, res) => {
         const data = {
           user: {
             id: user.id,
+            
           },
         };
-
         const token = jwt.sign(data, "secret_ecom");
-        res.json({ success: true, token });
+        res.json({ success: true, token, id: user.id});
       } else {
         res.json({ success: false, errors: "Wrong Password" });
       }
@@ -220,6 +222,8 @@ app.post('/login', async (req, res) => {
      res.json({success:false, errors:"Wrong Email Id"})
   }
 })
+
+
 
 // creating endpoint for new collection data
 app.get('/product/newcollection', async (req, res) => {
@@ -290,6 +294,13 @@ app.post("/cart/shoppingcart", fetchUser, async (req, res) => {
 
 })
 
+app.post("/user/id", async (req, res) => {
+  //let users = await Users.find({})
+  //res.send(JSON.stringify(users))
+  let user = req.user
+  res.send(JSON.stringify(user));
+})
+
   app.listen(port, error => {
     if (error) {
       console.log("Error " + error);
@@ -297,3 +308,4 @@ app.post("/cart/shoppingcart", fetchUser, async (req, res) => {
       console.log("Server Running on Port " + port);
     }
   });
+  
