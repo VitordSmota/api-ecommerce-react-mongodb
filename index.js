@@ -1,4 +1,4 @@
-const port = process.env.PORT||4000;
+const port = process.env.PORT || 4000;
 const express = require("express")
 const app = express();
 const mongoose = require("mongoose")
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 // Database Connection with mongoDB
 mongoose.connect(
-  "mongodb+srv://vitordsmota:irwiB^%40uPFosjc3HN4M@cluster0.eyrhhqa.mongodb.net/Ecommerce"
+  process.env.MONGO_URI
 );
 
 // API Creation
